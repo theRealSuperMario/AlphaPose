@@ -121,12 +121,12 @@ def check_input():
         inputpath = args.inputpath
         inputlist = args.inputlist
         inputimg = args.inputimg
-
         if len(inputlist):
             im_names = open(inputlist, 'r').readlines()
         elif len(inputpath) and inputpath != '/':
             for root, dirs, files in os.walk(inputpath):
                 im_names = files
+            im_names = sorted(im_names)
         elif len(inputimg):
             im_names = [inputimg]
 
